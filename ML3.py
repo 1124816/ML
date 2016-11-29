@@ -1,11 +1,13 @@
 import numpy as np
 
-X = np.array(([3,5], [5,1], [10,2]), dtype=float)
-y = np.array(([15], [5], [20]), dtype=float)
+#X = np.array(([3,5], [5,1], [10,2]), dtype=float)
+#y = np.array(([15], [5], [20]), dtype=float)
+X = np.array(([0,0,1],[0,1,1],[1,0,1],[1,1,1]), dtype=float)
+y = np.array(([0],[0],[1],[1]), dtype=float)
 
 # Normalize
-X = X/np.amax(X, axis=0)
-y = y/np.amax(X, axis=0) #Max test score is 100
+#X = X/np.amax(X, axis=0)
+#y = y/np.amax(X, axis=0) #Max test score is 100
 
 
 
@@ -13,7 +15,7 @@ y = y/np.amax(X, axis=0) #Max test score is 100
 class Neural_Network(object):
     def __init__(self):
         #Define Hyperparameters
-        self.inputLayerSize = 2
+        self.inputLayerSize = 3
         self.outputLayerSize = 1
         self.hiddenLayerSize = 3
 
