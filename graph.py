@@ -65,13 +65,13 @@ while not done:
 
     pressed = pygame.key.get_pressed()
     if pressed[pygame.K_UP]:
-        y += int(round(5*math.sin(r*math.pi)))
-        x += int(round(5*math.cos(r*math.pi)))
+        y += int(round(2.5*math.sin(r*math.pi)))
+        x += int(round(2.5*math.cos(r*math.pi)))
     if pressed[pygame.K_DOWN]:
-        y -= int(round(5*math.sin(r*math.pi)))
-        x -= int(round(5*math.cos(r*math.pi)))
-    if pressed[pygame.K_RIGHT]: r += .02
-    if pressed[pygame.K_LEFT]: r -= .02
+        y -= int(round(2.5*math.sin(r*math.pi)))
+        x -= int(round(2.5*math.cos(r*math.pi)))
+    if pressed[pygame.K_RIGHT]: r += .01
+    if pressed[pygame.K_LEFT]: r -= .01
     if pressed[pygame.K_RSHIFT]:
         if len(p) < 2 and f:
             p.append([x+int(round(30*math.cos(r*math.pi))), y+int(round(30*math.sin(r*math.pi))), r, 40])
@@ -79,13 +79,13 @@ while not done:
     else: f = True
 
     if pressed[pygame.K_w]:
-        y1 += int(round(5*math.sin(r1*math.pi)))
-        x1 += int(round(5*math.cos(r1*math.pi)))
+        y1 += int(round(2.5*math.sin(r1*math.pi)))
+        x1 += int(round(2.5*math.cos(r1*math.pi)))
     if pressed[pygame.K_s]:
-        y1 -= int(round(5*math.sin(r1*math.pi)))
-        x1 -= int(round(5*math.cos(r1*math.pi)))
-    if pressed[pygame.K_d]: r1 += .02
-    if pressed[pygame.K_a]: r1 -= .02
+        y1 -= int(round(2.5*math.sin(r1*math.pi)))
+        x1 -= int(round(2.5*math.cos(r1*math.pi)))
+    if pressed[pygame.K_d]: r1 += .01
+    if pressed[pygame.K_a]: r1 -= .01
     if pressed[pygame.K_q]:
         if len(p1) < 2 and f1:
             p1.append([x1+int(round(30*math.cos(r1*math.pi))), y1+int(round(30*math.sin(r1*math.pi))), r1, 40])
@@ -122,8 +122,8 @@ while not done:
         elif i[1]>830:
             p.remove(i)
         if i[3] > 0:
-            i[1] += int(round(20*math.sin(i[2]*math.pi)))
-            i[0] += int(round(20*math.cos(i[2]*math.pi)))
+            i[1] += int(round(10*math.sin(i[2]*math.pi)))
+            i[0] += int(round(10*math.cos(i[2]*math.pi)))
             i[3] -= 1
         pygame.draw.circle(screen, (0,0,0), (i[0], i[1]), 5)
         if 30 > math.sqrt((abs(i[0]-x)**2)+(abs(i[1]-y)**2)):
@@ -143,8 +143,8 @@ while not done:
         elif i[1]>830:
             p1.remove(i)
         if i[3] > 0:
-            i[1] += int(round(20*math.sin(i[2]*math.pi)))
-            i[0] += int(round(20*math.cos(i[2]*math.pi)))
+            i[1] += int(round(10*math.sin(i[2]*math.pi)))
+            i[0] += int(round(10*math.cos(i[2]*math.pi)))
             i[3] -= 1
         pygame.draw.circle(screen, (0,0,0), (i[0], i[1]), 5)
         if 30 > math.sqrt((abs(i[0]-x)**2)+(abs(i[1]-y)**2)):
@@ -155,4 +155,4 @@ while not done:
             p1.remove(i)
 
     pygame.display.flip()
-    clock.tick(60)
+    clock.tick(120)
