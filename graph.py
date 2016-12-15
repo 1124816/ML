@@ -73,7 +73,7 @@ while not done:
     if pressed[pygame.K_RIGHT]: r += .01
     if pressed[pygame.K_LEFT]: r -= .01
     if pressed[pygame.K_RSHIFT]:
-        if len(p) < 2 and f:
+        if len(p) < 3 and f:
             p.append([x+int(round(30*math.cos(r*math.pi))), y+int(round(30*math.sin(r*math.pi))), r, 40])
             f = False
     else: f = True
@@ -87,7 +87,7 @@ while not done:
     if pressed[pygame.K_d]: r1 += .01
     if pressed[pygame.K_a]: r1 -= .01
     if pressed[pygame.K_q]:
-        if len(p1) < 2 and f1:
+        if len(p1) < 3 and f1:
             p1.append([x1+int(round(30*math.cos(r1*math.pi))), y1+int(round(30*math.sin(r1*math.pi))), r1, 40])
             f1 = False
     else: f1 = True
