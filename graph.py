@@ -45,21 +45,21 @@ while not done:
         f = True
         f1 = True
     if x<0:
-        x += 1600
-    elif x>1600:
-        x-= 1600
+        x += 690
+    elif x>690:
+        x-= 690
     if y<0:
-        y += 830
-    elif y>830:
-        y -=830
+        y += 480
+    elif y>480:
+        y -=480
     if x1<0:
-        x1 += 1600
-    elif x1>1600:
-        x1-= 1600
+        x1 += 690
+    elif x1>690:
+        x1-= 690
     if y1<0:
-        y1 += 830
-    elif y1>830:
-        y1 -=830
+        y1 += 480
+    elif y1>480:
+        y1 -=480
     for event in pygame.event.get():
             if event.type == pygame.QUIT:
                     done = True
@@ -116,11 +116,11 @@ while not done:
     for i in p:
         if i[0]<0:
             p.remove(i)
-        elif i[0]>1600:
+        elif i[0]>690:
             p.remove(i)
         elif i[1]<0:
             p.remove(i)
-        elif i[1]>830:
+        elif i[1]>480:
             p.remove(i)
         if i[3] > 0:
             i[1] += int(round(10*math.sin(i[2]*math.pi)))
@@ -137,11 +137,11 @@ while not done:
     for i in p1:
         if i[0]<0:
             p1.remove(i)
-        elif i[0]>1600:
+        elif i[0]>690:
             p1.remove(i)
         elif i[1]<0:
             p1.remove(i)
-        elif i[1]>830:
+        elif i[1]>480:
             p1.remove(i)
         if i[3] > 0:
             i[1] += int(round(10*math.sin(i[2]*math.pi)))
