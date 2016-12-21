@@ -2,12 +2,8 @@ import pygame
 import math
 
 pygame.init()
-<<<<<<< HEAD
 screen = pygame.display.set_mode((720, 480))
 pygame.display.set_caption('STEM Quickie')
-=======
-screen = pygame.display.set_mode((1600, 830))
->>>>>>> notbase/master
 done = False
 is_blue = True
 s = 0
@@ -159,10 +155,5 @@ while not done:
             #dead1 = False
             p1.remove(i)
 
-<<<<<<< HEAD
     pygame.display.update()
     clock.tick(90)
-=======
-    pygame.display.flip()
-    clock.tick(120)
->>>>>>> notbase/master
