@@ -3,6 +3,7 @@ import math
 
 pygame.init()
 screen = pygame.display.set_mode((720, 480))
+pygame.display.set_caption('STEM Quickie')
 done = False
 is_blue = True
 s = 0
@@ -154,5 +155,5 @@ while not done:
             #dead1 = False
             p1.remove(i)
 
-    pygame.display.flip()
-    clock.tick(60)
+    pygame.display.update()
+    clock.tick(90)
