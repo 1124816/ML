@@ -2,8 +2,12 @@ import pygame
 import math
 
 pygame.init()
+<<<<<<< HEAD
 screen = pygame.display.set_mode((720, 480))
 pygame.display.set_caption('STEM Quickie')
+=======
+screen = pygame.display.set_mode((1600, 830))
+>>>>>>> notbase/master
 done = False
 is_blue = True
 s = 0
@@ -45,50 +49,50 @@ while not done:
         f = True
         f1 = True
     if x<0:
-        x += 720
-    elif x>720:
-        x-= 720
+        x += 1600
+    elif x>1600:
+        x-= 1600
     if y<0:
-        y += 480
-    elif y>480:
-        y -=480
+        y += 830
+    elif y>830:
+        y -=830
     if x1<0:
-        x1 += 720
-    elif x1>720:
-        x1-= 720
+        x1 += 1600
+    elif x1>1600:
+        x1-= 1600
     if y1<0:
-        y1 += 480
-    elif y1>480:
-        y1 -=480
+        y1 += 830
+    elif y1>830:
+        y1 -=830
     for event in pygame.event.get():
             if event.type == pygame.QUIT:
                     done = True
 
     pressed = pygame.key.get_pressed()
     if pressed[pygame.K_UP]:
-        y += int(round(3*math.sin(r*math.pi)))
-        x += int(round(3*math.cos(r*math.pi)))
+        y += int(round(2.5*math.sin(r*math.pi)))
+        x += int(round(2.5*math.cos(r*math.pi)))
     if pressed[pygame.K_DOWN]:
-        y -= int(round(3*math.sin(r*math.pi)))
-        x -= int(round(3*math.cos(r*math.pi)))
-    if pressed[pygame.K_RIGHT]: r += .02
-    if pressed[pygame.K_LEFT]: r -= .02
+        y -= int(round(2.5*math.sin(r*math.pi)))
+        x -= int(round(2.5*math.cos(r*math.pi)))
+    if pressed[pygame.K_RIGHT]: r += .01
+    if pressed[pygame.K_LEFT]: r -= .01
     if pressed[pygame.K_RSHIFT]:
-        if len(p) < 2 and f:
+        if len(p) < 3 and f:
             p.append([x+int(round(30*math.cos(r*math.pi))), y+int(round(30*math.sin(r*math.pi))), r, 40])
             f = False
     else: f = True
 
     if pressed[pygame.K_w]:
-        y1 += int(round(3*math.sin(r1*math.pi)))
-        x1 += int(round(3*math.cos(r1*math.pi)))
+        y1 += int(round(2.5*math.sin(r1*math.pi)))
+        x1 += int(round(2.5*math.cos(r1*math.pi)))
     if pressed[pygame.K_s]:
-        y1 -= int(round(3*math.sin(r1*math.pi)))
-        x1 -= int(round(3*math.cos(r1*math.pi)))
-    if pressed[pygame.K_d]: r1 += .02
-    if pressed[pygame.K_a]: r1 -= .02
+        y1 -= int(round(2.5*math.sin(r1*math.pi)))
+        x1 -= int(round(2.5*math.cos(r1*math.pi)))
+    if pressed[pygame.K_d]: r1 += .01
+    if pressed[pygame.K_a]: r1 -= .01
     if pressed[pygame.K_q]:
-        if len(p1) < 2 and f1:
+        if len(p1) < 3 and f1:
             p1.append([x1+int(round(30*math.cos(r1*math.pi))), y1+int(round(30*math.sin(r1*math.pi))), r1, 40])
             f1 = False
     else: f1 = True
@@ -116,11 +120,11 @@ while not done:
     for i in p:
         if i[0]<0:
             p.remove(i)
-        elif i[0]>720:
+        elif i[0]>1600:
             p.remove(i)
         elif i[1]<0:
             p.remove(i)
-        elif i[1]>480:
+        elif i[1]>830:
             p.remove(i)
         if i[3] > 0:
             i[1] += int(round(10*math.sin(i[2]*math.pi)))
@@ -137,11 +141,11 @@ while not done:
     for i in p1:
         if i[0]<0:
             p1.remove(i)
-        elif i[0]>720:
+        elif i[0]>1600:
             p1.remove(i)
         elif i[1]<0:
             p1.remove(i)
-        elif i[1]>480:
+        elif i[1]>830:
             p1.remove(i)
         if i[3] > 0:
             i[1] += int(round(10*math.sin(i[2]*math.pi)))
@@ -155,5 +159,10 @@ while not done:
             #dead1 = False
             p1.remove(i)
 
+<<<<<<< HEAD
     pygame.display.update()
     clock.tick(90)
+=======
+    pygame.display.flip()
+    clock.tick(120)
+>>>>>>> notbase/master
