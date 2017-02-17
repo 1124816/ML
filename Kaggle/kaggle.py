@@ -1,18 +1,38 @@
+# Imports
 
+# pandas
+import pandas as pd
+from pandas import Series,DataFrame
 
-import csv as csv
+# numpy, matplotlib, seaborn
 import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set_style('whitegrid')
 
+# machine learning
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC, LinearSVC
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.naive_bayes import GaussianNB
 
-csv_file_object = csv.reader(open('./csv/train.csv', 'rb'))
-header = csv_file_object.next()
+train = pd.read_csv("./csv/train.csv")
 
-data=[]
-for row in csv_file_object:
-    data.append(row)
-data = np.array(data)
+train = train.drop(['PassengerId','Name','Ticket'], axis=1)
 
-number_passengers = np.size(data[0::,1].astype(np.float))
-number_survived = np.sum(data[0::,1].astype(np.float))
-proportion_survivors = number_survived / number_passengers
-print proportion_survivors
+train["Embarked"] = train["Embarked"].fillna("S")
+train["Age"] = train["Age"].fillna(train["Age"].median())
+
+train["Sex"][train["Sex"] == "female"] = 0
+train["Sex"][train["Sex"] != 0] = 1
+
+train["Embarked"][train["Embarked"] == "S"] = 0
+train["Embarked"][train["Embarked"] == "C"] = 1
+train["Embarked"][train["Embarked"] == "Q"] = 2
+
+forest = RandomForestClassifier(max_depth = 20, min_samples_split=2, n_estimators = 100, random_state = 1)
+model = forest.fit(train[["Pclass", "Age", "Sex", "Fare", "SibSp", "Parch", "Embarked"]].values, train["Survived"].values)
+print(model.score(train[["Pclass", "Age", "Sex", "Fare", "SibSp", "Parch", "Embarked"]].values, train["Survived"].values))
+
+print(train.describe)
