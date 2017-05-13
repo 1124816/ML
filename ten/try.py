@@ -118,7 +118,7 @@ def next_population():
             if len(prev_observation)==0:
                 action = random.randrange(0,2)
             else:
-                action = np.argmax(model.predict(prev_observation.reshape(-1,len(prev_observation),1))[0])
+                action = np.argmax(model.predict(prev_observation)[0])
                 #print(np.argmax(model.predict(prev_observation.reshape(-1,len(prev_observation),1))[0]))
             observation, reward, done, info = env.step(action)
 
@@ -164,9 +164,8 @@ for each_game in range(100):
         if len(prev_obs)==0:
             action = random.randrange(0,2)
         else:
-            action = np.argmax(model.predict(prev_obs.reshape(-1,len(prev_obs),1))[0])
-            #print(np.argmax(model.predict(prev_obs.reshape(-1,len(prev_obs),1))[0]))
-
+            print([prev_obs])
+            action = np.argmax(model.predict([prev_obs])[0])
         choices.append(action)
 
         new_observation, reward, done, info = env.step(action)
